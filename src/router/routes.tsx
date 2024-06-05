@@ -9,10 +9,40 @@ import Report from '../pages/report/Report';
 import Marketplace from '../pages/marketplace/Marketplace';
 import Logs from '../pages/logs/Logs';
 import Payroll from '../pages/payroll/Payroll';
+import Login from '../pages/authentication/Login';
+import ForgotPassword from '../pages/authentication/ForgotPassword';
+import ResetPassword from '../pages/authentication/ResetPassword';
+import Activation from '../pages/authentication/Activation';
 const Index = lazy(() => import('../pages/Index'));
 
 const routes = [
     // dashboard
+
+
+    {
+        path: '/login',
+        element: <Login />,
+        layout: 'blank',
+    },
+
+    {
+        path: '/forgot-password',
+        element: <ForgotPassword />,
+        layout: 'blank',
+    },
+
+    {
+        path: '/reset-password',
+        element: <ResetPassword />,
+        layout: 'blank',
+    },
+
+    {
+        path: '/activation',
+        element: <Activation />,
+        layout: 'blank',
+    },
+
     {
         path: '/',
         element: <Index />,
