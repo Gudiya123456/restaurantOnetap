@@ -18,7 +18,6 @@ const Index = lazy(() => import('../pages/Index'));
 const routes = [
     // dashboard
 
-
     {
         path: '/login',
         element: <Login />,
