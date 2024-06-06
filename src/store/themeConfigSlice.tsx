@@ -14,6 +14,8 @@ const defaultState = {
     locale: 'en',
     sidebar: false,
     pageTitle: '',
+    token:'',
+    userData:[],
     languageList: [
         { code: 'zh', name: 'Chinese' },
         { code: 'da', name: 'Danish' },
@@ -45,6 +47,10 @@ const initialState = {
     isDarkMode: false,
     sidebar: localStorage.getItem('sidebar') || defaultState.sidebar,
     semidark: localStorage.getItem('semidark') || themeConfig.semidark,
+    token: localStorage.getItem('token') || themeConfig.token,
+    userData: JSON.parse(localStorage.getItem('userData')) || themeConfig.userData || themeConfig.userData,
+
+
     languageList: [
         { code: 'zh', name: 'Chinese' },
         { code: 'da', name: 'Danish' },
@@ -136,9 +142,17 @@ const themeConfigSlice = createSlice({
         setPageTitle(state, { payload }) {
             document.title = `${payload} | VRISTO - Multipurpose Tailwind Dashboard Template`;
         },
+        setToken(state, { payload }) {
+            localStorage.setItem('token', payload);
+            state.token = payload;
+        },
+        setUserData(state, { payload }) {
+            localStorage.setItem('userData', JSON.parse(payload));
+            state.userData = payload;
+        },
     },
 });
 
-export const { toggleTheme, toggleMenu, toggleLayout, toggleRTL, toggleAnimation, toggleNavbar, toggleSemidark, toggleLocale, toggleSidebar, setPageTitle } = themeConfigSlice.actions;
+export const { setUserData,setToken,toggleTheme, toggleMenu, toggleLayout, toggleRTL, toggleAnimation, toggleNavbar, toggleSemidark, toggleLocale, toggleSidebar, setPageTitle } = themeConfigSlice.actions;
 
 export default themeConfigSlice.reducer;

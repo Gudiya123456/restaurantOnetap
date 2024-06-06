@@ -13,6 +13,7 @@ import Login from '../pages/authentication/Login';
 import ForgotPassword from '../pages/authentication/ForgotPassword';
 import ResetPassword from '../pages/authentication/ResetPassword';
 import Activation from '../pages/authentication/Activation';
+import CheckLogin from '../pages/authentication/CheckLogin';
 const Index = lazy(() => import('../pages/Index'));
 
 const routes = [
@@ -20,7 +21,7 @@ const routes = [
 
     {
         path: '/login',
-        element: <Login />,
+        element: <CheckLogin />,
         layout: 'blank',
     },
 
